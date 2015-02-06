@@ -1,0 +1,89 @@
+[{
+	"Namespace": "aws:autoscaling:launchconfiguration",
+	"OptionName": "InstanceType",
+	"Value": "m3.medium"
+}, {
+	"Namespace": "aws:autoscaling:launchconfiguration",
+	"OptionName": "EC2KeyName",
+	"Value": "Milestone2-Key"
+}, {
+	"Namespace": "aws:autoscaling:launchconfiguration",
+	"OptionName": "MonitoringInterval",
+	"Value": "1 minute"
+}, {
+	"Namespace": "aws:elasticbeanstalk:environment",
+	"OptionName": "EnvironmentType",
+	"Value": "LoadBalanced"
+}, {
+	"Namespace": "aws:ec2:vpc",
+	"OptionName": "VPCId",
+	"Value": "vpc-3640b053"
+}, {
+	"Namespace": "aws:ec2:vpc",
+	"OptionName": "Subnets",
+	"Value": "subnet-5912d13c"
+}, {
+	"Namespace": "aws:ec2:vpc",
+	"OptionName": "ELBSubnets",
+	"Value": "subnet-5912d13c"
+}, {
+	"Namespace": "aws:ec2:vpc",
+	"OptionName": "AssociatePublicIpAddress",
+	"Value": "true"
+}, {
+	"Namespace": "aws:autoscaling:asg",
+	"OptionName": "MinSize",
+	"Value": "1"
+}, {
+	"Namespace": "aws:autoscaling:asg",
+	"OptionName": "MaxSize",
+	"Value": "1"
+}, {
+	"Namespace": "aws:autoscaling:trigger",
+	"OptionName": "MeasureName",
+	"Value": "CPUUtilization"
+}, {
+	"Namespace": "aws:autoscaling:trigger",
+	"OptionName": "Unit",
+	"Value": "Percent"
+}, {
+	"Namespace": "aws:autoscaling:trigger",
+	"OptionName": "Statistic",
+	"Value": "Average"
+}, {
+	"Namespace": "aws:autoscaling:trigger",
+	"OptionName": "Period",
+	"Value": "1"
+}, {
+	"Namespace": "aws:autoscaling:trigger",
+	"OptionName": "BreachDuration",
+	"Value": "4"
+}, {
+	"Namespace": "aws:autoscaling:trigger",
+	"OptionName": "LowerThreshold",
+	"Value": "50"
+}, {
+	"Namespace": "aws:autoscaling:trigger",
+	"OptionName": "UpperThreshold",
+	"Value": "80"
+}, {
+	"Namespace": "aws:elb:loadbalancer",
+	"OptionName": "LoadBalancerHTTPPort",
+	"Value": "80"
+}, {
+	"Namespace": "aws:elb:loadbalancer",
+	"OptionName": "LoadBalancerPortProtocol",
+	"Value": "HTTP"
+}, {
+	"Namespace": "aws:elb:loadbalancer",
+	"OptionName": "LoadBalancerHTTPSPort",
+	"Value": "443"
+}, {
+	"Namespace": "aws:elb:loadbalancer",
+	"OptionName": "LoadBalancerSSLPortProtocol",
+	"Value": "HTTPS"
+}, {
+	"Namespace": "aws:elb:loadbalancer",
+	"OptionName": "SSLCertificateId",
+	"Value": "arn:aws:iam::785291343916:server-certificate/wildcard-infospace-com"
+}]

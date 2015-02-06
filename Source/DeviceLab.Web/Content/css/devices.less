@@ -1,0 +1,38 @@
+﻿@import "glowing-frames.less";
+
+#deviceContainer {
+    overflow: hidden;
+}
+
+.device-container {
+    text-align: center;
+
+    .device-img {
+        margin-bottom: 1em;
+        width: 64px;
+    }
+}
+
+.status-light {
+    width: 16px;
+    height: 16px;
+    border-radius: 14px;
+    display:inline-block;
+    margin: 1em 0.5em 0;
+    -webkit-animation-duration: 3s;
+    -webkit-animation-iteration-count: infinite;
+}
+
+.status-light.Online {
+    background-color: #2F0;
+    -webkit-box-shadow: 0 0 18px #2F0;
+}
+
+.status-light.Pending {
+    -webkit-animation-name: bluePulse;
+}
+
+.status-light.Offline,
+.status-light.Error {
+    -webkit-animation-name: redPulse;
+}

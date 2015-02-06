@@ -1,0 +1,21 @@
+﻿<div id="panel-url-job" class="col-sm-4 device-control-pane">
+    <div class="well">
+        <h3>
+            Launch URL<br />
+            <i class="fa fa-3x fa-rocket"></i>
+        </h3>
+        <p>Launch a URL in the default browser on each device.</p>
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "result", Url = "/api/device/url" }))
+        {
+            <div class="form-group">
+                <div class="input-clear-container">
+                    <input class="form-control" type="text" name="url" placeholder="Enter URL" id="launchUrlTextbox" />
+                    <span class="glyphicon glyphicon-remove-circle input-clear"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <input class="btn btn-primary btn-block" type="submit" value="Launch" />
+            </div>
+        }
+    </div>
+</div>

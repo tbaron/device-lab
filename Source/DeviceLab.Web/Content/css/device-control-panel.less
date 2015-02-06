@@ -1,0 +1,65 @@
+﻿@buttonColor: #3498DB;
+
+.device-control-pane {
+    overflow: hidden;
+
+    &.active .well {
+        background-color: #d6e9c6;
+    }
+
+    h3 {
+        text-align: center;
+    }
+
+    p {
+        min-height: 40px;
+    }
+}
+
+.input-clear-container {
+    position: relative;
+
+    .input-clear {
+        position: absolute;
+        padding: .5em;
+        right: 0;
+        top: 0;
+        cursor: pointer;
+        color: #ccc;
+        font-size: 14px;
+        line-height: 1.42857143;
+    }
+
+    input {
+        padding-right: 2em;
+    }
+}
+
+.input-vertical-spacer {
+    height: 34px;
+}
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+}
+
+input[readonly] {
+    background-color: white !important;
+    cursor: text !important;
+}

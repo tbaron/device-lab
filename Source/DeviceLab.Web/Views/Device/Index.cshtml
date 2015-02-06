@@ -1,0 +1,58 @@
+﻿@{
+    ViewBag.Title = "Device Lab";
+}
+
+@section featured {
+    <section class="featured">
+        <div id="app-logo">
+            <div id="device-logo"><img src="@Url.Content("~/content/img/site-logo.png")" /></div>
+            <div id="title">Device Lab</div>
+        </div>
+        <div id="company-logo"><img src="@Url.Content("~/content/img/company-logo.png")" /></div>
+    </section>
+}
+
+<div class="container">
+
+    <div class="page-header">
+        <h1>What to do?</h1>
+    </div>
+
+    <div class="device-control-section">
+        <div id="device-control-panel" class="row equal">
+            @Html.Partial("RunAppServiceJob")
+            @Html.Partial("RunUrlServiceJob")
+            @Html.Partial("RunStressTestServiceJob")
+        </div>
+    </div>
+
+    <div class="page-header">
+        <h1>Connected Devices</h1>
+    </div>
+
+    <div id="deviceContainer" class="row"></div>
+
+    <script id="deviceTemplate" type="text/html">
+        <div class="col-lg-3 col-md-4 col-sm-6">
+            <div class="panel panel-default device-container">
+                <div class="panel-body">
+
+                    <div><img class="device-img" src="@Url.Content("~/content/img/devices/device-nexus-5.png")" /></div>
+                    <div class="device">
+                        <div>{name}</div>
+                        <div>{version}</div>
+                        <div>Id: {id}</div>
+                    </div>
+                    <div class="status-light {status}"></div>
+                    <div class="device-btn">{link}</div>
+
+                </div>
+            </div>
+        </div>
+    </script>
+</div>
+
+@section scripts
+{
+    @Scripts.Render("~/content/sitejs")
+}

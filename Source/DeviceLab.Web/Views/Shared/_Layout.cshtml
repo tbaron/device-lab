@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-1.11.1.min.js"></script>
+    @*<script src="//ajax.aspnetcdn.com/ajax/jquery.validate/1.13.1/jquery.validate.min.js"></script>*@
+    @*<script src="//ajax.aspnetcdn.com/ajax/mvc/5.1/jquery.validate.unobtrusive.min.js"></script>*@
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    @RenderSection("scripts", required: false)
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" />
+    @Styles.Render("~/content/sitecss")
+
+</head>
+<body>
+    <header>
+        <div class="navbar navbar-inverse navbar-static-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapsible-menu">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+
+                    <a class="navbar-brand" href="@Url.Action("", "")">
+                        Device Lab
+                    </a>
+                </div>
+                <div class="navbar-collapse collapse" id="navbar-collapsible-menu">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="https://github.com"><span class="fa fa-github"></span>&nbsp;&nbsp;Signed in</a></li>
+                        <li><a href="@Url.Action("index", "apiconfig")"><span class="glyphicon glyphicon-cog"></span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                @RenderSection("featured", required: false)
+            </div>
+        </div>
+    </header>
+    <div id="main">
+        <div class="container">
+            <section class="content-wrapper main-content clear-fix">
+                @RenderBody()
+            </section>
+        </div>
+    </div>
+    <footer>
+        <div class="container">
+            <p class="text-muted">@MvcApplication.Copyright</p>
+        </div>
+    </footer>
+</body>
+</html>

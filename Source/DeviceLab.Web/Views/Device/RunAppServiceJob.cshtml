@@ -1,0 +1,26 @@
+﻿<div id="panel-app-job" class="col-sm-4 device-control-pane">
+    <div class="well">
+        <h3>
+            Upload<br />
+            <i class="fa fa-3x fa-upload"></i>
+        </h3>
+        <p>Upload and run an app on the devices.</p>
+        <form id="apkForm" action="~/api/upload" method="post" enctype="multipart/form-data">
+            <div class="form-group">
+                <div class="input-group">
+                    <span class="input-group-btn">
+                        <span class="btn btn-default btn-file">
+                            <span class="glyphicon glyphicon-folder-open"></span><input type="file" id="apk" name="apk">
+                        </span>
+                    </span>
+                    <input type="text" class="form-control" readonly id="apk-text" placeholder="Select a file" />
+                </div>
+            </div>
+            <div class="form-group">
+                <input class="btn btn-primary btn-block" id="submit" type="submit" value="Upload" />
+            </div>
+        </form>
+
+        <div id="uploadStatus"></div>
+    </div>
+</div>

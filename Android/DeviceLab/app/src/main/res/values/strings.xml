@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+	<string name="app_name">Device Lab</string>
+
+    <string name="activity_main_text">
+		This application allows the Device Lab to function as required.
+		\n
+		\nAt present it only keeps the screens lit, but in the future may allow the devices to receive instruction directly without a host server.
+    </string>
+
+	<string name="service_main_title">@string/app_name</string>
+	<string name="service_main_text">The Device Lab service is running.</string>
+
+</resources>

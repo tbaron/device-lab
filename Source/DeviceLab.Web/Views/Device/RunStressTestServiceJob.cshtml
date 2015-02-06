@@ -1,0 +1,18 @@
+﻿<div id="panel-stresstest-job" class="col-sm-4 device-control-pane">
+    <div class="well">
+        <h3>
+            Stress Test<br />
+            <i class="fa fa-3x fa-coffee"></i>
+        </h3>
+        <p>Stress test the last uploaded apps on the devices!</p>
+        @using (Ajax.BeginForm(new AjaxOptions { HttpMethod = "POST", UpdateTargetId = "result", Url = "/api/device/stresstest" }))
+        {
+            <div class="form-group">
+                <div class="input-vertical-spacer"></div>
+            </div>
+            <div class="form-group">
+                <input class="btn btn-primary btn-block" type="submit" value="Start" />
+            </div>
+        }
+    </div>
+</div>

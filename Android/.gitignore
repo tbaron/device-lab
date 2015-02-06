@@ -1,0 +1,42 @@
+######################
+# Junk
+######################
+ClassDiagrams.png
+
+######################
+# Local properties
+######################
+.signing/
+*.keystore
+local.properties
+gradle.properties
+
+######################
+# Build artifacts
+######################
+bin/
+build/
+dist/
+gen/
+docs/
+build_artifacts.xml
+
+######################
+# Filesystem
+######################
+.DS_Store
+
+######################
+# IDE
+######################
+.settings/
+.project
+.idea
+*.iml
+.classpath
+
+######################
+# GRADLE
+######################
+.gradle/
+

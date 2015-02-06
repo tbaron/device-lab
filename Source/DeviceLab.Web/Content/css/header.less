@@ -1,0 +1,62 @@
+﻿header {
+    padding-bottom: 20px;
+    background: -webkit-linear-gradient(top, #d7ecf3 0%, #afdae8 100%);
+    background: -moz-linear-gradient(top, #d7ecf3 0%, #afdae8 100%);
+    background: -ms-linear-gradient(top, #d7ecf3 0%, #afdae8 100%);
+    background: -o-linear-gradient(top, #d7ecf3 0%, #afdae8 100%);
+    background: linear-gradient(top, #d7ecf3 0%, #afdae8 100%);
+}
+
+#app-logo {
+    float: left;
+    overflow: hidden;
+
+    img {
+        height: 130px;
+    }
+
+    #device-logo {
+        float: left;
+    }
+
+    #title {
+        float: left;
+        font-size: 5em;
+        line-height: 150px;
+        color: #000000;
+        margin-left: 10px;
+    }
+}
+
+#company-logo {
+    float: right;
+    line-height: 150px;
+
+    img {
+        width: 200px;
+    }
+}
+
+@media (max-width: @screen-md-min) {
+    #app-logo {
+        float: none;
+
+        #device-logo {
+            float: none;
+        }
+
+        img {
+            display: block;
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        #title {
+            display: none;
+        }
+    }
+
+    #company-logo {
+        display: none;
+    }
+}

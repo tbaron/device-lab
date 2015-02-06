@@ -1,0 +1,134 @@
+﻿@model KeyInfo[]
+@{
+    ViewBag.Title = "Index";
+}
+
+@section featured {
+    <section class="featured">
+        <div id="app-logo">
+            <div id="device-logo"><img src="@Url.Content("~/content/img/site-logo.png")" /></div>
+            <div id="title">API Configuration</div>
+        </div>
+        <div id="company-logo"><img src="@Url.Content("~/content/img/company-logo.png")" /></div>
+    </section>
+}
+
+<div class="page-header">
+    <h1>Manage Keys</h1>
+</div>
+
+<p>
+    This console manages authenticiation keys for the service API.
+    <span class="label label-warning">Warning</span>
+    <span class="text-warning">Removing application credentials <b>REQUIRES</b> an update to that application/service.</span>
+</p>
+
+<div class="well">
+
+    <h4>Create a new key</h4>
+
+    @using (Html.BeginForm("createkey", "apiconfig"))
+    {
+        <div class="input-group">
+            <input class="form-control" id="applicationName" name="applicationName" type="text" placeholder="Application Name" />
+            <div class="input-group-btn">
+                <button class="btn btn-primary" type="submit"><span class="glyphicon glyphicon-plus"></span></button>
+            </div>
+        </div>
+    }
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Application Name</th>
+            <th>Client Id</th>
+            <th>Client Secret</th>
+            <th>Date</th>
+            <th>Created By</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var key in Model)
+        {
+            <tr>
+                <td rowspan="2">@key.ApplicationName</td>
+                <td><code>@key.ClientId</code></td>
+                <td><code>@key.ClientSecret</code></td>
+                <td>@key.Date.ToString("yyyy-MM-dd HH:mm")</td>
+                <td>@key.CreatedBy</td>
+                <td>
+                    <a class="btn btn-danger btn-sm" href="@Url.Action("RemoveKey", new { clientId = key.ClientId })"><span class="glyphicon glyphicon-trash"></span></a>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="5">
+                    @foreach (var token in key.AccessTokens)
+                    {
+                        <div>
+                            <span class="label label-default">Access Token</span>
+                            <code>@token</code>
+                            <a class="btn btn-link" href="@Url.Action("RevokeToken", new { accessToken = token })" alt="Revoke Token"><span class="glyphicon glyphicon-refresh"></span></a>
+                        </div>
+                    }
+                    @if (!key.AccessTokens.Any())
+                    {
+                        <p class="text-muted">No active access tokens</p>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="page-header">
+    <h1>API Development</h1>
+</div>
+
+<p>
+    Authentication for the API is implemented per <a href="https://tools.ietf.org/html/rfc6749#section-4.4">Section 4.4 - Client Credentials Grant</a> of the OAuth 2.0 spec.
+    Twitter has a good tutorial on implementing client authentication, linked below.
+</p>
+
+<h4>Resources</h4>
+<ul>
+    <li>RFC 6749 - The OAuth 2.0 Authorization Framework<br /><a href="https://tools.ietf.org/html/rfc6749#section-4.4">https://tools.ietf.org/html/rfc6749#section-4.4</a></li>
+    <li>Application-only authentication | Twitter Developers<br /><a href="https://dev.twitter.com/oauth/application-only">https://dev.twitter.com/oauth/application-only</a></li>
+</ul>
+
+
+
+<div class="page-header">
+    <h1>Manage Devices</h1>
+</div>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Model</th>
+            <th>Version</th>
+            <th>Id</th>
+            <th>Status</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var device in DeviceManager.Instance.GetDevices())
+        {
+            <tr>
+                <th></th>
+                <th>@device.Name</th>
+                <th>@device.Version</th>
+                <th>@device.Id</th>
+                <th>@device.Status</th>
+                <th>
+                    <a class="btn btn-danger btn-sm" href="@Url.Action("RemoveDevice", "apiconfig", new { deviceId = device.Id })"><span class="glyphicon glyphicon-trash"></span></a>
+                </th>
+            </tr>
+        }
+    </tbody>
+</table>
